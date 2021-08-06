@@ -22,10 +22,7 @@ public class TaskController {
 
     @GetMapping("{id}")
     Task detail(@PathVariable Long id) {
-        return tasks.stream()
-                .filter(task -> task.getId().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new TaskNotFoundException(id));
+        return getTask(id);
     }
 
     @PostMapping
@@ -38,6 +35,31 @@ public class TaskController {
         tasks.add(task);
 
         return task;
+    }
+
+    @PutMapping("{id}")
+    Task put(@PathVariable Long id, @RequestBody Task source) {
+        Task task = getTask(id);
+
+        task.setTitle(source.getTitle());
+
+        return task;
+    }
+
+    @PatchMapping("{id}")
+    Task patch(@PathVariable Long id, @RequestBody Task source) {
+        Task task = getTask(id);
+        task.setTitle(source.getTitle());
+
+        return task;
+    }
+
+
+    Task getTask(Long id) {
+        return tasks.stream()
+                .filter(task -> task.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new TaskNotFoundException(id));
     }
 
 
