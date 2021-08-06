@@ -29,6 +29,10 @@ dependencies {
 
     // Spring Web
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
 
 application {
