@@ -54,6 +54,12 @@ public class TaskController {
         return task;
     }
 
+    @DeleteMapping("{id}")
+    void delete(@PathVariable Long id) {
+        Task task = getTask(id);
+        tasks.remove(task);
+    }
+
 
     Task getTask(Long id) {
         return tasks.stream()
