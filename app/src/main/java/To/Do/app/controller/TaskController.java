@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RequestMapping("/tasks")
 @RestController
@@ -24,7 +25,7 @@ public class TaskController {
     }
 
     @GetMapping("{id}")
-    Task detail(@PathVariable Long id) {
+    Optional<Task> detail(@PathVariable Long id) {
         return taskService.getTask(id);
     }
 
