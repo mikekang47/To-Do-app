@@ -2,18 +2,23 @@ package To.Do.app.service;
 
 import To.Do.app.dto.Task;
 import To.Do.app.exception.TaskNotFoundException;
+import To.Do.app.repository.TaskRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class TaskService {
 
     Long id = 0L;
-    
+
     public List<Task> tasks = new ArrayList<>();
+    private TaskRepository taskRepository;
 
     public List<Task> getTasks() {
-        return tasks;
+        return taskRepository.findAll();
     }
 
     public Task getTask(Long id) {
