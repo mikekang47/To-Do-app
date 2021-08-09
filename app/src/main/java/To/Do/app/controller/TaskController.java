@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RequestMapping("/tasks")
 @RestController
+@CrossOrigin
 public class TaskController {
     TaskService taskService;
 
