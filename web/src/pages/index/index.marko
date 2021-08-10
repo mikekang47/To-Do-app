@@ -7,11 +7,14 @@ class {
     };
      this.loadTasks();
   }
- 
+
+
+
   async loadTasks() {
     const { data } = await axios.get('http://localhost:8080/tasks')
     this.state.tasks = data;
   }
+
 
   async addTask() {
     const title = this.getEl('title').value;
@@ -20,7 +23,7 @@ class {
     });
     await this.loadTasks();
   }
-  
+
   async deleteTask(id) {
     await axios.delete(`http://localhost:8080/tasks/${id}`)
     await this.loadTasks();
@@ -30,7 +33,7 @@ class {
     this.state.tasks = this.state.tasks.map(task => task.id === id ? {
       ...task,
       editing: true,
-    }: task) 
+    }: task)
   }
 
   async updateTask(id) {
@@ -45,7 +48,7 @@ class {
     this.state.tasks = this.state.tasks.map(task => task.id === id ? {
       ...task,
       editing: false,
-    }: task) 
+    }: task)
   }
 }
 
@@ -68,17 +71,17 @@ class {
         </button>
       </if>
       <else>
-        ${task.title} 
+        ${task.title}
         <span></span>
-        <button type="button" on-click("editTask", task.id)>    
+        <button type="button" on-click("editTask", task.id)>
          수정
         </button>
         <button type="button" on-click("deleteTask", task.id)>
          완료
         </button>
-      </else> 
+      </else>
   </li>
-  
+
     </for>
   </ol>
 
@@ -91,6 +94,6 @@ class {
   <button type="button" on-click("addTask")>
   추가
   </button>
-  
+
 </p>
 </app-layout>

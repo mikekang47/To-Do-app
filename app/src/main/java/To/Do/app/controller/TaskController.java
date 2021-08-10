@@ -6,9 +6,8 @@ import To.Do.app.service.TaskService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @RequestMapping("/tasks")
 @RestController
@@ -26,14 +25,14 @@ public class TaskController {
     }
 
     @GetMapping("{id}")
-    Optional<Task> detail(@PathVariable Long id) {
+    Task detail(@PathVariable Long id) {
         return taskService.getTask(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    Task createTask(@RequestBody Task source) {
-        return taskService.create(source);
+    Task create(@RequestBody Task source) {
+        return taskService.createTask(source);
     }
 
     @PutMapping("{id}")
@@ -47,6 +46,7 @@ public class TaskController {
     }
 
     @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     void delete(@PathVariable Long id) {
         taskService.delete(id);
     }
