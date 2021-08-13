@@ -32,18 +32,15 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public Task update(Long id, Task source) {
-        Task task = taskRepository.findById(id)
-                .orElseThrow(() -> new TaskNotFoundException(id));
-
+    public Task updateTask(Long id, Task source) {
+        Task task = getTask(id);
         task.setTitle(source.getTitle());
 
-        return task;
+        return taskRepository.save(task);
     }
 
     public void delete(Long id) {
-       Task task = taskRepository.findById(id)
-               .orElseThrow(() -> new TaskNotFoundException(id));
+       Task task = getTask(id);
 
        taskRepository.delete(task);
     }

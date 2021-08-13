@@ -73,6 +73,9 @@ application {
     // Define the main class for the application.
     mainClass = 'com.codesoom.assignment.App'
 }
+test {
+    useJUnitPlatform()
+}
 
 tasks.named('test') {
     // Use junit platform for unit tests.

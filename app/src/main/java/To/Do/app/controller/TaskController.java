@@ -37,12 +37,12 @@ public class TaskController {
 
     @PutMapping("{id}")
     Task putTask(@PathVariable Long id, @RequestBody Task source) {
-        return taskService.update(id, source);
+        return taskService.updateTask(id, source);
     }
 
     @PatchMapping("{id}")
     Task patchTask(@PathVariable Long id, @RequestBody Task source) {
-        return taskService.update(id, source);
+        return taskService.updateTask(id, source);
     }
 
     @DeleteMapping("{id}")
