@@ -67,6 +67,9 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.20'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
 
+    //MariaDB
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
+
 }
 
 application {
