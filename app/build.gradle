@@ -74,7 +74,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'com.codesoom.assignment.App'
+    mainClass = 'To.Do.App'
 }
 test {
     useJUnitPlatform()
@@ -111,8 +111,10 @@ jacocoTestCoverageVerification {
             }
 
             excludes = [
-                    "com.codesoom.assignment.App"
+                    "To.Do.App"
             ]
         }
     }
 }
+
+
